@@ -1,0 +1,31 @@
+.fieldset {
+    background-color: #ffffff;
+    padding: 10px 20px;
+    border: 1px solid #323232;
+    border-radius: 5px;
+    margin: 10px 0 60px;
+}
+
+.fieldset__legend {
+    background-color: #2b4ba4;
+    color: white;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+.fieldset__select {
+    text-align: center;
+}
+
+@media (max-width: 530px) {
+    .fieldset__media {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .form__legend {
+        text-align: center;
+    }
+}
