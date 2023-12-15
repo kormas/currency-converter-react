@@ -25,6 +25,14 @@ At present the exchange rates in this project are constant values.
 ![convert to pln](https://raw.githubusercontent.com/kormas/currency-converter-react/main/public/convert-to-pln.gif)
 ![convert to other](https://raw.githubusercontent.com/kormas/currency-converter-react/main/public/convert-to-other.gif)
 
+## Technologies
+- BEM
+- HTML
+- CSS
+- Flexbox
+- JavaScript
+- React
+
 ## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
