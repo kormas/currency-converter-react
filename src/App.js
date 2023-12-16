@@ -61,10 +61,10 @@ function App() {
     setAmountFromPln(event.target.value);
   };
 
-  const calculateToPlnResult = (event) => {
+  const calculateToPlnResult = () => {
     return amountToPln && selectedForeign.buy ? (parseFloat(amountToPln) * selectedForeign.buy).toFixed(2) : "N/A";
   };
-  const calculateFromPlnResult = (event) => {
+  const calculateFromPlnResult = () => {
     return amountFromPln && selectedNational.buy ? (parseFloat(amountFromPln) / selectedNational.buy).toFixed(2) : "N/A";
   };
 
@@ -92,12 +92,12 @@ function App() {
                 </p>
                 <p>
                   <span className="form__labelText">Kupno:</span>
-                  <strong>{typeof selectedCurrency.buy === "number" ? selectedCurrency.buy.toFixed(2) : selectedCurrency.buy} </strong>
+                  <strong>{typeof selectedCurrency.buy === "number" ? selectedCurrency.buy.toFixed(2) : "N/A"} </strong>
                   PLN
                 </p>
                 <p>
                   <span className="form__labelText">Sprzedaż:</span>
-                  <strong>{typeof selectedCurrency.sell === "number" ? selectedCurrency.sell.toFixed(2) : selectedCurrency.sell} </strong>
+                  <strong>{typeof selectedCurrency.sell === "number" ? selectedCurrency.sell.toFixed(2) : "N/A"} </strong>
                   PLN
                 </p>
               </>
