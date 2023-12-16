@@ -17,7 +17,3 @@ const Select = ({ name, id, defaultValue, onChange, currencies, renderOptionCont
 );
 
 export default Select;
-
-
-{/* {extraOption} */ }
-{/* <option value="" hidden disabled selected>Wybierz walutę</option> */ }
