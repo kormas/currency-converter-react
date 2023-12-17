@@ -1,9 +1,9 @@
 import "./style.css";
 
-const Input = ({ value, onChange, id }) => {
+const Input = ({ value, onChange, id, onKeyDown }) => {
     return (
         <input
-            className="form__field"
+            className="fieldset__field"
             type="number"
             value={value}
             onChange={onChange}
@@ -11,6 +11,7 @@ const Input = ({ value, onChange, id }) => {
             placeholder="Wpisz kwotę"
             min="0"
             step="1"
+            onKeyDown={onKeyDown}
         />
     )
 };

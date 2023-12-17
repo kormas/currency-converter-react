@@ -1,5 +1,3 @@
-
-
 const Select = ({ name, id, defaultValue, onChange, currencies, renderOptionContent, extraOption }) => (
     <select
         name={name}

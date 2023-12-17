@@ -1,4 +1,4 @@
-.form__field {
+.fieldset__field {
     border: 2px solid black;
     padding: 5px;
     margin: 5px 5px 5px 0;
@@ -6,6 +6,6 @@
     border-radius: 5px;
 }
 
-.form__field:invalid {
+.fieldset__field:invalid {
     background-color: rgb(255, 121, 121);
 }

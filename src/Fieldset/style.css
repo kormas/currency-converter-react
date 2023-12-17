@@ -20,12 +20,14 @@
 
 @media (max-width: 530px) {
     .fieldset__media {
+        padding: 1px 2px;
         display: flex;
         align-items: center;
         flex-direction: column;
     }
 
-    .form__legend {
+    .fieldset__legend {
+        margin: 1px 0;
         text-align: center;
     }
 }
