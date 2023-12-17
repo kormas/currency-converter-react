@@ -21,9 +21,9 @@ The currency converter results are updated on each "input" event.
 At present the exchange rates in this project are constant values.
 
 ## Examples of use:
-![exchange rates](https://raw.githubusercontent.com/kormas/currency-converter-react/main/public/exchange-rates.gif)
-![convert to pln](https://raw.githubusercontent.com/kormas/currency-converter-react/main/public/convert-to-pln.gif)
-![convert to other](https://raw.githubusercontent.com/kormas/currency-converter-react/main/public/convert-to-other.gif)
+![exchange rates](https://raw.githubusercontent.com/kormas/currency-converter-react/main/images/exchange-rates.gif)
+![convert to pln](https://raw.githubusercontent.com/kormas/currency-converter-react/main/images/convert-to-pln.gif)
+![convert to other](https://raw.githubusercontent.com/kormas/currency-converter-react/main/images/convert-to-other.gif)
 
 ## Technologies
 - BEM
