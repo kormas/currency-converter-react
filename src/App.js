@@ -62,12 +62,17 @@ function App() {
   };
 
   const calculateToPlnResult = () => {
-    return amountToPln && selectedForeign.buy ? (parseFloat(amountToPln) * selectedForeign.buy).toFixed(2) : "N/A";
+    return amountToPln > 0 && selectedForeign.buy ? (parseFloat(amountToPln) * selectedForeign.buy).toFixed(2) : "N/A";
   };
   const calculateFromPlnResult = () => {
-    return amountFromPln && selectedNational.buy ? (parseFloat(amountFromPln) / selectedNational.buy).toFixed(2) : "N/A";
+    return amountFromPln > 0 && selectedNational.buy ? (parseFloat(amountFromPln) / selectedNational.buy).toFixed(2) : "N/A";
   };
 
+  const handleKeyDown = (event) => {
+    if (event.key === "-") {
+      event.preventDefault();
+    }
+  };
 
 
   return (
@@ -91,12 +96,12 @@ function App() {
                   />
                 </p>
                 <p>
-                  <span className="form__labelText">Kupno:</span>
+                  <span className="fieldset__labelText">Kupno:</span>
                   <strong>{typeof selectedCurrency.buy === "number" ? selectedCurrency.buy.toFixed(2) : "N/A"} </strong>
                   PLN
                 </p>
                 <p>
-                  <span className="form__labelText">Sprzedaż:</span>
+                  <span className="fieldset__labelText">Sprzedaż:</span>
                   <strong>{typeof selectedCurrency.sell === "number" ? selectedCurrency.sell.toFixed(2) : "N/A"} </strong>
                   PLN
                 </p>
@@ -114,6 +119,7 @@ function App() {
                     value={amountToPln}
                     onChange={handleToPlnInput}
                     id="amountToPln"
+                    onKeyDown={handleKeyDown}
                   />
                   <Select
                     name="toPln"
@@ -125,7 +131,7 @@ function App() {
                   />
                 </p>
                 <p>
-                  <span className="form__labelText">Otrzymam:</span>
+                  <span className="fieldset__labelText">Otrzymam:</span>
                   <strong> {calculateToPlnResult()} </strong>
                   PLN
                 </p>
@@ -143,6 +149,7 @@ function App() {
                     value={amountFromPln}
                     onChange={handleFromPlnInput}
                     id="amountFromPln"
+                    onKeyDown={handleKeyDown}
                   />
                   PLN
                 </p>
