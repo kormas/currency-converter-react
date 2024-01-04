@@ -6,7 +6,6 @@ import Fieldset from "./Fieldset";
 import Article from "./Article";
 import Clock from "./Clock";
 import { useState } from 'react';
-import { useEffect } from 'react';
 
 function App() {
 
@@ -37,25 +36,11 @@ function App() {
     }
   ];
 
-  // const nowDate = () => {
-  //   const now = new Date();
-  //   const days = ["niedziela", "poniedziałek", "wtorek", "środa", "czwartek", "piątek", "sobota"];
-  //   const months = ["stycznia", "lutego", "marca", "kwietnia", "maja", "czerwca", "lipca", "sierpnia", "września", "października", "listopada", "grudnia"];
-  //   const dayOfWeek = days[now.getDay()];
-  //   const day = now.getDate();
-  //   const month = months[now.getMonth()];
-  //   const hours = String(now.getHours()).padStart(2, '0');
-  //   const minutes = String(now.getMinutes()).padStart(2, '0');
-  //   const seconds = String(now.getSeconds()).padStart(2, '0');
-  //   return `Dzisiaj jest ${dayOfWeek}, ${day} ${month}, ${hours}:${minutes}:${seconds}`;
-  // };
-
   const [selectedCurrency, setSelectedCurrency] = useState({ code: "", name: "", buy: "N/A", sell: "N/A" });
   const [selectedForeign, setSelectedForeign] = useState(currencies[0]);
   const [selectedNational, setSelectedNational] = useState(currencies[0]);
   const [amountToPln, setAmountToPln] = useState("");
   const [amountFromPln, setAmountFromPln] = useState("");
-  // const [currentTime, setCurrentTime] = useState(nowDate);
 
   const handleCurrencySelect = (event) => {
     const chosenCurrency = currencies.find(currency => currency.code === event.target.value);
@@ -90,15 +75,6 @@ function App() {
     }
   };
 
-  // useEffect(() => {
-  //   const intervalId = setInterval(() => {
-  //     setCurrentTime(nowDate());
-  //   }, 1000);
-  //   return () => {
-  //     clearInterval(intervalId)
-  //   };
-  // }, []);
-
   return (
     <Article
       form={
@@ -106,11 +82,6 @@ function App() {
         <Clock/>
           <Fieldset
             title="Kursy walut"
-            // clock={
-            //   <>
-            //     <p className="fieldset__clock">{currentTime}</p>
-            //   </>
-            // }
             body={
               <>
                 <p className="fieldset__select fieldset__media">
