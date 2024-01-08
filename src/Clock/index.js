@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useEffect } from 'react';
 import "./style.css";
 
-const Clock = ({ }) => {
+const Clock = () => {
 
   const nowDate = () => {
   const now = new Date();
