@@ -1,12 +1,12 @@
-import "./style.css";
+import { StyledArticle, Header } from "./styled.js";
 
 const Article = ({ form }) => (
-    <article className="article">
-        <h1 className="article__header">Kalkulator walut</h1>
+    <StyledArticle>
+        <Header>Kalkulator walut</Header>
         <form>
             {form}
         </form>
-    </article>
+    </StyledArticle>
 );
 
 export default Article;

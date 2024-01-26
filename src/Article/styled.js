@@ -1,12 +1,14 @@
-.article {
+import styled from "styled-components";
+
+export const StyledArticle = styled.article`
     max-width: 700px;
     padding: 0 15px;
     margin: 0 auto;
     font-family: 'Open Sans', sans-serif;
     font-size: 20px;
-}
+`;
 
-.article__header {
+export const Header = styled.h1`
     color: rgb(255, 255, 255);
     background-color: #2b4ba4;
     text-align: center;
@@ -19,4 +21,4 @@
     -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
     -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
     box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
-}
+`;
