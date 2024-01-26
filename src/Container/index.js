@@ -1,4 +1,4 @@
-import { Line } from "./styled.js";
+import { Line } from "./styled";
 
 const Container = ({ textAlign, body }) => (
     <Line textAlign={textAlign}>

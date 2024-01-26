@@ -1,4 +1,4 @@
-import { StyledFieldset, Legend } from "./styled.js";
+import { StyledFieldset, Legend } from "./styled";
 
 const Fieldset = ({ title, body }) => (
     <StyledFieldset>

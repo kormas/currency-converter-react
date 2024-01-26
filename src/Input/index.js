@@ -1,8 +1,8 @@
-import "./style.css";
+import { StyledInput } from "./styled";
 
 const Input = ({ value, onChange, id, onKeyDown }) => {
     return (
-        <input
+        <StyledInput
             className="fieldset__field"
             type="number"
             value={value}

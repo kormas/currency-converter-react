@@ -1,4 +1,4 @@
-import { StyledArticle, Header } from "./styled.js";
+import { StyledArticle, Header } from "./styled";
 
 const Article = ({ form }) => (
     <StyledArticle>
