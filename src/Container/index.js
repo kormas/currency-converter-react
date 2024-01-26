@@ -1,10 +1,9 @@
-import "./style.css";
+import { Line } from "./styled.js";
 
-const Container = ({body, textAlign}) => (
-    <p className="container"
-        style={{textAlign: textAlign}}>
+const Container = ({ textAlign, body }) => (
+    <Line textAlign={textAlign}>
         {body}
-    </p>
+    </Line>
 )
 
 export default Container
