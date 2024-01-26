@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { useEffect } from 'react';
-import "./style.css";
+import { useEffect } from "react";
+import { Timer } from "./styled.js"
 
 const Clock = () => {
 
@@ -16,7 +16,7 @@ const Clock = () => {
   }, []);
 
   return (
-    <p className="clock">
+    <Timer>
       Dzisiaj jest
       {" "}
       {currentTime.toLocaleString(undefined, {
@@ -26,8 +26,8 @@ const Clock = () => {
         second: "2-digit",
         day: "numeric",
         month: "long"
-    })}
-    </p>
+      })}
+    </Timer>
   )
 };
 
