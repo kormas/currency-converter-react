@@ -2,6 +2,7 @@ import './App.css';
 import Select from "./Select"
 import Input from "./Input"
 import Label from "./Label"
+import Container from "./Container"
 import Fieldset from "./Fieldset";
 import Article from "./Article";
 import Clock from "./Clock";
@@ -79,12 +80,15 @@ function App() {
     <Article
       form={
         <>
-        <Clock/>
+          <Clock />
           <Fieldset
             title="Kursy walut"
             body={
               <>
-                <p className="fieldset__select fieldset__media">
+                <Container
+                  textAlign="center"
+                  body={
+                    <>
                   <Label forContent="rates" labelText="Dla:" />
                   <Select
                     name="rates"
@@ -95,14 +99,16 @@ function App() {
                     currencies={currencies}
                     renderOptionContent={(currency) => `${currency.code} (${currency.name})`}
                   />
-                </p>
+                  </>
+                  }
+                />
                 <p>
-                  <span className="fieldset__labelText">Kupno:</span>
+                  <Label labelText="Kupno:" />
                   <strong>{typeof selectedCurrency.buy === "number" ? selectedCurrency.buy.toFixed(2) : "N/A"} </strong>
                   PLN
                 </p>
                 <p>
-                  <span className="fieldset__labelText">Sprzedaż:</span>
+                  <Label labelText="Sprzedaż:" />
                   <strong>{typeof selectedCurrency.sell === "number" ? selectedCurrency.sell.toFixed(2) : "N/A"} </strong>
                   PLN
                 </p>
@@ -114,25 +120,29 @@ function App() {
             title="Wymiana na złotówki"
             body={
               <>
-                <p className="fieldset__media">
-                  <Label forContent="amountToPln" labelText="Posiadam:" />
-                  <Input
-                    value={amountToPln}
-                    onChange={handleToPlnInput}
-                    id="amountToPln"
-                    onKeyDown={handleKeyDown}
-                  />
-                  <Select
-                    name="toPln"
-                    id="toPln"
-                    defaultValue={currencies[0].code}
-                    onChange={handleToPlnSelect}
-                    currencies={currencies}
-                    renderOptionContent={(currency) => currency.code}
-                  />
-                </p>
+                <Container
+                  body={
+                    <>
+                      <Label forContent="amountToPln" labelText="Posiadam:" />
+                      <Input
+                        value={amountToPln}
+                        onChange={handleToPlnInput}
+                        id="amountToPln"
+                        onKeyDown={handleKeyDown}
+                      />
+                      <Select
+                        name="toPln"
+                        id="toPln"
+                        defaultValue={currencies[0].code}
+                        onChange={handleToPlnSelect}
+                        currencies={currencies}
+                        renderOptionContent={(currency) => currency.code}
+                      />
+                    </>
+                  }
+                />
                 <p>
-                  <span className="fieldset__labelText">Otrzymam:</span>
+                  <Label labelText="Otrzymam:" />
                   <strong> {calculateToPlnResult()} </strong>
                   PLN
                 </p>
@@ -144,18 +154,27 @@ function App() {
             title="Wymiana na walutę obcą"
             body={
               <>
-                <p className="fieldset__media">
-                  <Label forContent="amountFromPln" labelText="Posiadam:" />
-                  <Input
-                    value={amountFromPln}
-                    onChange={handleFromPlnInput}
-                    id="amountFromPln"
-                    onKeyDown={handleKeyDown}
-                  />
-                  PLN
-                </p>
+                <Container
+                  body={
+                    <>
+                      <Label
+                        forContent="amountFromPln"
+                        labelText="Posiadam:"
+                      />
+                      <Input
+                        value={amountFromPln}
+                        onChange={handleFromPlnInput}
+                        id="amountFromPln"
+                        onKeyDown={handleKeyDown}
+                      />
+                      PLN
+                    </>
+                  }
+                />
                 <p>
-                  <Label forContent="fromPln" labelText="Otrzymam:"
+                  <Label
+                    forContent="fromPln"
+                    labelText="Otrzymam:"
                     extraContent={<strong>{calculateFromPlnResult()} </strong>}
                   />
                   <Select

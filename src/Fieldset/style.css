@@ -14,16 +14,9 @@
     border-radius: 5px;
 }
 
-.fieldset__select {
-    text-align: center;
-}
-
 @media (max-width: 530px) {
-    .fieldset__media {
-        padding: 1px 2px;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
+    .fieldset {
+        padding: 10px 5px;
     }
 
     .fieldset__legend {
