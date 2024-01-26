@@ -1,10 +1,9 @@
 import { StyledLabel } from "./styled";
 
-const Label = ({ forContent, labelText, extraContent }) => (
+const Label = ({ forContent, labelText }) => (
     <StyledLabel
         htmlFor={forContent}>
-        <span className="fieldset__labelText">{labelText}</span>
-        {extraContent}
+        <span>{labelText}</span>
     </StyledLabel>
 );
 

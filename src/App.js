@@ -89,26 +89,33 @@ function App() {
                   textAlign="center"
                   body={
                     <>
-                  <Label forContent="rates" labelText="Dla:" />
-                  <Select
-                    name="rates"
-                    id="rates"
-                    defaultValue=""
-                    extraOption="Wybierz walutę"
-                    onChange={handleCurrencySelect}
-                    currencies={currencies}
-                    renderOptionContent={(currency) => `${currency.code} (${currency.name})`}
-                  />
-                  </>
+                      <Label
+                        forContent="rates"
+                        labelText="Dla:"
+                      />
+                      <Select
+                        name="rates"
+                        id="rates"
+                        defaultValue=""
+                        extraOption="Wybierz walutę"
+                        onChange={handleCurrencySelect}
+                        currencies={currencies}
+                        renderOptionContent={(currency) => `${currency.code} (${currency.name})`}
+                      />
+                    </>
                   }
                 />
                 <p>
-                  <Label labelText="Kupno:" />
+                  <Label
+                    labelText="Kupno:"
+                  />
                   <strong>{typeof selectedCurrency.buy === "number" ? selectedCurrency.buy.toFixed(2) : "N/A"} </strong>
                   PLN
                 </p>
                 <p>
-                  <Label labelText="Sprzedaż:" />
+                  <Label
+                    labelText="Sprzedaż:"
+                  />
                   <strong>{typeof selectedCurrency.sell === "number" ? selectedCurrency.sell.toFixed(2) : "N/A"} </strong>
                   PLN
                 </p>
@@ -123,7 +130,10 @@ function App() {
                 <Container
                   body={
                     <>
-                      <Label forContent="amountToPln" labelText="Posiadam:" />
+                      <Label
+                        forContent="amountToPln"
+                        labelText="Posiadam:"
+                      />
                       <Input
                         value={amountToPln}
                         onChange={handleToPlnInput}
@@ -142,7 +152,9 @@ function App() {
                   }
                 />
                 <p>
-                  <Label labelText="Otrzymam:" />
+                  <Label
+                    labelText="Otrzymam:"
+                  />
                   <strong> {calculateToPlnResult()} </strong>
                   PLN
                 </p>
@@ -175,8 +187,8 @@ function App() {
                   <Label
                     forContent="fromPln"
                     labelText="Otrzymam:"
-                    extraContent={<strong>{calculateFromPlnResult()} </strong>}
                   />
+                  <strong>{calculateFromPlnResult()} </strong>
                   <Select
                     name="fromPln"
                     id="fromPln"
