@@ -1,19 +1,8 @@
-import { useState } from "react";
-import { useEffect } from "react";
 import { Timer } from "./styled"
+import { useCurrentDate } from "./useCurrentDate";
 
 const Clock = () => {
-
-  const [currentTime, setCurrentTime] = useState(new Date());
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentTime(new Date());
-    }, 1000);
-    return () => {
-      clearInterval(intervalId)
-    };
-  }, []);
+  const currentTime = useCurrentDate();
 
   return (
     <Timer>
