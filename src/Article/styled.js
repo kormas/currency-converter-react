@@ -15,7 +15,7 @@ export const Header = styled.h1`
     font-size: 30px;
     font-weight: normal;
     border-radius: 5px;
-    max-width: 250px;
+    max-width: 100%;
     margin: 20px auto;
     padding: 10px;
     -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
