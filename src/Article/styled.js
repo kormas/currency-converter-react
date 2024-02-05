@@ -18,7 +18,7 @@ export const Header = styled.h1`
     max-width: 100%;
     margin: 20px auto;
     padding: 10px;
-    -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
-    -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
-    box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+    -webkit-box-shadow: 0px 0px 19px 0px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 0px 0px 19px 0px rgba(66, 68, 90, 1);
+    box-shadow: 0px 0px 19px 0px rgba(66, 68, 90, 1);
 `;
