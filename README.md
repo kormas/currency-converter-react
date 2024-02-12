@@ -32,6 +32,7 @@ At present the exchange rates in this project are constant values.
 - Flexbox
 - JavaScript
 - React
+- Styled Components
 
 ## Getting Started with Create React App
 
