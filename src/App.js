@@ -1,4 +1,4 @@
-import './App.css';
+import "./App.css";
 import Select from "./Select"
 import Input from "./Input"
 import Label from "./Label"
@@ -6,40 +6,45 @@ import Container from "./Container"
 import Fieldset from "./Fieldset";
 import Article from "./Article";
 import Clock from "./Clock";
-import { useState } from 'react';
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 function App() {
 
-  const currencies = [
-    {
-      code: "EUR",
-      name: "Euro",
-      buy: 4.4556,
-      sell: 4.4781
-    },
-    {
-      code: "USD",
-      name: "Dolar amerykański",
-      buy: 4.1483,
-      sell: 4.1708
-    },
-    {
-      code: "CHF",
-      name: "Frank szwajcarski",
-      buy: 4.6205,
-      sell: 4.6419
-    },
-    {
-      code: "GBP",
-      name: "Funt Brytyjski",
-      buy: 5.1410,
-      sell: 5.1658
-    }
-  ];
+  useEffect(() => {
+    const loadCurrencies = async () => {
+      try {
+        const response = await axios.get("/ratesx.json");
+        const plnValue = response.data.data.PLN.value;
+        const includeCurrencies = ["EUR", "USD", "CHF", "GBP"];
+        const currencyNames = {
+          EUR: "Euro",
+          USD: "Dolar amerykański",
+          CHF: "Frank szwajcarski",
+          GBP: "Funt brytyjski"
+        }
+        const filteredCurrencies = Object.values(response.data.data).filter(currency => includeCurrencies.includes(currency.code));
+        const loadedCurrencies = filteredCurrencies.map(currency => ({
+          ...currency,
+          value: plnValue / currency.value,
+          name: currencyNames[currency.code]
+        }));
+        setCurrencies(loadedCurrencies);
+        setSelectedForeign(loadedCurrencies[0]);
+        setSelectedNational(loadedCurrencies[0]);
+      } catch (error) {
+        console.error("Coś się popsuło", error);
+      }
+    };
 
+    loadCurrencies();
+  }, []);
+
+  const [currencies, setCurrencies] = useState([]);
   const [selectedCurrency, setSelectedCurrency] = useState({ code: "", name: "", buy: "N/A", sell: "N/A" });
-  const [selectedForeign, setSelectedForeign] = useState(currencies[0]);
-  const [selectedNational, setSelectedNational] = useState(currencies[0]);
+  const [selectedForeign, setSelectedForeign] = useState({ code: "", name: "", buy: "N/A", sell: "N/A" });
+  const [selectedNational, setSelectedNational] = useState({ code: "", name: "", buy: "N/A", sell: "N/A" });
+  
   const [amountToPln, setAmountToPln] = useState("");
   const [amountFromPln, setAmountFromPln] = useState("");
 
@@ -54,7 +59,7 @@ function App() {
   const handleFromPlnSelect = (event) => {
     const chosenCurrency = currencies.find(currency => currency.code === event.target.value);
     setSelectedNational(chosenCurrency);
-  }
+  };
 
   const handleToPlnInput = (event) => {
     setAmountToPln(event.target.value);
@@ -64,10 +69,10 @@ function App() {
   };
 
   const calculateToPlnResult = () => {
-    return amountToPln > 0 && selectedForeign.buy ? (parseFloat(amountToPln) * selectedForeign.buy).toFixed(2) : "N/A";
+    return amountToPln > 0 && selectedForeign.value ? (parseFloat(amountToPln) * 0.99 * selectedForeign.value).toFixed(2) : "N/A";
   };
   const calculateFromPlnResult = () => {
-    return amountFromPln > 0 && selectedNational.buy ? (parseFloat(amountFromPln) / selectedNational.buy).toFixed(2) : "N/A";
+    return amountFromPln > 0 && selectedNational.value ? (parseFloat(amountFromPln) / 1.01 / selectedNational.value).toFixed(2) : "N/A";
   };
 
   const handleKeyDown = (event) => {
@@ -79,6 +84,7 @@ function App() {
   return (
     <Article
       form={
+        currencies.length > 0 ? (
         <>
           <Clock />
           <Fieldset
@@ -109,14 +115,14 @@ function App() {
                   <Label
                     labelText="Kupno:"
                   />
-                  <strong>{typeof selectedCurrency.buy === "number" ? selectedCurrency.buy.toFixed(2) : "N/A"} </strong>
+                  <strong>{typeof selectedCurrency.value === "number" ? (selectedCurrency.value * 0.99).toFixed(2) : "N/A"} </strong>
                   PLN
                 </p>
                 <p>
                   <Label
                     labelText="Sprzedaż:"
                   />
-                  <strong>{typeof selectedCurrency.sell === "number" ? selectedCurrency.sell.toFixed(2) : "N/A"} </strong>
+                  <strong>{typeof selectedCurrency.value === "number" ? (selectedCurrency.value * 1.01).toFixed(2) : "N/A"} </strong>
                   PLN
                 </p>
               </>
@@ -202,6 +208,9 @@ function App() {
             }
           />
         </>
+        ) : (
+          <div>Ładowanie danych...</div>
+        )
       }
     />
   );

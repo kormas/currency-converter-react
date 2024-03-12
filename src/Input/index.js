@@ -10,7 +10,7 @@ const Input = ({ value, onChange, id, onKeyDown }) => {
             id={id}
             placeholder="Wpisz kwotę"
             min="0"
-            step="1"
+            step="any"
             onKeyDown={onKeyDown}
         />
     )
