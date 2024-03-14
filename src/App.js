@@ -6,6 +6,7 @@ import Container from "./Container"
 import Fieldset from "./Fieldset";
 import Article from "./Article";
 import Clock from "./Clock";
+import LastUpdate from "./LastUpdate";
 import useCurrencies from "./useCurrencies";
 import { useState} from "react";
 
@@ -104,7 +105,10 @@ function App() {
                     <strong>{typeof selectedCurrency.value === "number" ? (selectedCurrency.value * 1.01).toFixed(2) : "N/A"} </strong>
                     PLN
                   </p>
-                  <p center>Data ostatniej aktualizacji: <b>{lastUpdate.toLocaleDateString()}</b></p>
+                  <LastUpdate
+                  source={lastUpdate.toLocaleDateString()}
+                  />
+                  {/* <p center>Data ostatniej aktualizacji: <b>{lastUpdate.toLocaleDateString()}</b></p> */}
                 </>
               }
             />
