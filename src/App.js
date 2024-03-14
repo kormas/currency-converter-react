@@ -6,7 +6,7 @@ import Container from "./Container"
 import Fieldset from "./Fieldset";
 import Article from "./Article";
 import Clock from "./Clock";
-import useCurrencies from "./Currencies/useCurrencies";
+import useCurrencies from "./useCurrencies";
 import { useState} from "react";
 
 function App() {
